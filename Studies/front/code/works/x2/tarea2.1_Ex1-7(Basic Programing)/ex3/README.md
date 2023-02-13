@@ -1,0 +1,1 @@
+# 3. Create an array called months that stores the names of the twelve months of the year. Display the twelve names using the alert() function.

@@ -1,0 +1,63 @@
+::001.::¿Desde cuando se calcula la fecha con el objeto Date()? {
+~30/01/1970
+=01/01/1970
+~07/01/1970
+~01/07/1970
+}
+
+::002.::¿De cuántas formas se puede crear el objeto Date()? {
+~Dos
+~Cinco
+=Cuatro
+~Tres
+}
+
+::003.::¿Para que sirve el bjeto Intl? {
+~Formatear fechas
+~Comparar idiomas
+=Comparar y formatear cadenas
+~Formatear numeros
+}
+
+::004.::¿El objeto Intl.Collator('sv').compare compara cadenas según el abecedario Alemán? (V/F){
+FALSE
+####El objeto Intl.Collator('sv').compare compara cadenas según el abecedario Sueco
+}
+
+::005.::Weakmap admite objetos y datos primitivos (V/F) {
+FALSE
+####WeakMap admite solo objetos
+}
+
+::006.::¿Cuántos métodos tiene WeakMap? {
+=Set / Get / Delete / Has
+~Set / Get / Delete / Has / Clear / Size
+~Set / Get / Delete / Has / Clear
+~Set / Get / Delete / Has / Size
+}
+
+::007.::Weakset tiene 2 constructores (V/F) {
+FALSE
+####Weakset sólo tiene 1 constructor WeakSet()
+}
+
+::008.::¿Cuántos métodos más tiene set() respecto a WeakSet()? {
+~2 métodos más
+=3 métodos más
+~4 métodos más
+~5 métodos más
+}
+
+::009.::¿Que resultado saldría all ordenar el abecedario con Intl.Collator('de').compare? {
+~['Z','z','a','ä']
+=['a','ä','Z','z']
+~['a','ä','Z','z']
+~['ä','a','z','Z']
+}
+
+::0010.::¿Que hace Map.delete('something')? {
+~Borra el último elemento del Map
+=Borra un elemento específico del Map
+~Borra todos los elementos del Map
+~Borra el primer elemento del Map
+}

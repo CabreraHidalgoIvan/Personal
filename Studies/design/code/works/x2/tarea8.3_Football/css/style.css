@@ -1,0 +1,487 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap');
+
+main {
+    background-color: #CB3524;
+    display: grid;
+    grid-template-columns: repeat(3, 33%);
+    grid-template-rows: repeat(2, auto);
+    grid-gap: 10px;
+    grid-template-areas: 'info info info'
+                         'main main aside';
+    font-family: 'Poppins', sans-serif;
+}
+
+section {
+
+    min-height: 70vh;
+    box-sizing: border-box;
+    grid-area: main;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+aside {
+    grid-area: aside;
+    padding: 10px;
+}
+
+/* HEADER */
+
+
+header {
+    background-color: #272E61;
+    display: grid;
+    grid-template-columns: repeat(2, 10% 90%);
+    grid-template-areas: 'logo nav';
+    grid-template-rows: 100%;
+    color: black;
+    width: 100%;
+    padding: 10px;
+}
+
+/* LOGO */
+
+figure {
+    grid-area: logo;
+    margin: 0;
+    padding-left: 5%;
+}
+
+/* NAV */
+
+nav {
+    grid-area: nav;
+    color: #fff;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
+    padding: 2% 10%;
+    margin: 0;
+}
+
+
+nav ul li {
+    font-size: 1.5em;
+    display: inline-block;
+    padding: 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    color: #CB3524;
+}
+
+/* INFO */
+
+.info {
+    grid-area: info;
+    background-color: #272E61;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(2, 35%);
+    grid-template-areas: 'info1 info2';
+}
+
+.info h1 {
+    grid-area: info1;
+    color: #fff;
+    text-align: end;
+    font-size: 3em;
+    font-weight: 700;
+    padding: 5%;
+}
+
+.info p {
+    grid-area: info2;
+    color: #fff;
+    text-align: start;
+    font-size: 1.5em;
+    font-weight: 400;
+    padding: 5%;
+
+    margin: 0 auto;
+
+}
+/* BODY */
+
+#body {
+    background-color: #CB3524;
+    display: grid;
+    grid-template-columns: repeat(6, 180px);
+    grid-template-rows: repeat(6, 180px);
+    justify-content: center;
+    align-content: center;
+    grid-gap: 10px;
+    grid-template-areas: 'box1 box1 box1 box2 box2 box2'
+                         'box1 box1 box1 box2 box2 box2'
+                         'box1 box1 box1 box3 box3 box3'
+                         'box1 box1 box1 box3 box3 box3'
+                         'box4 box4 box4 box3 box3 box3'
+                         'box4 box4 box4 box5 box5 box5';
+}
+
+
+#body .box {
+    height: 100%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#body .box a {
+    text-decoration: none;
+}
+
+#body .box .frontBox1 {
+    color: white;
+    font-size: 2.5em;
+    font-weight: bold;
+    background-color: black;
+    height: 100%;
+    display: grid;
+    justify-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+#body .box .imgBox1 {
+    background-image: url(../img/equipo.jpeg);
+    background-size: cover;
+    background-position: center;
+    top: 0;
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+
+#body .box .backBox1 {
+    background-color: #272E61;
+    color: white;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    height: 100%;
+    font-weight: 200;
+    font-size: 1.2rem;
+    padding: 5%;
+    font-family: 'Poppins', sans-serif;
+}
+
+#body .box:hover .frontBox1 {
+    margin-top: -135%;
+}
+
+#body .backBox1Text h2 {
+    text-align: right;
+}
+
+#body .backBox1Text div {
+    text-align: left;
+    padding-top: 20%;
+}
+
+#body .box .frontBox2 {
+    color: white;
+    font-size: 3em;
+    font-weight: bold;
+    background-color: black;
+    height: 100%;
+    display: grid;
+    justify-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+#body .box .imgBox2 {
+    background-image: url(../img/estadio.jpeg);
+    background-size: cover;
+    background-position: center;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    transition: all 0.3s ease;
+}
+
+#body .box:hover .frontBox2 {
+    margin-top: -80%;
+}
+
+#body .box .backBox2 {
+    background-color: #272E61;
+    color: white;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    height: 100%;
+    font-weight: 200;
+    font-size: 1.2rem;
+    padding: 5%;
+    font-family: 'Poppins', sans-serif;
+}
+
+#body .box .frontBox3 {
+    color: white;
+    font-size: 3em;
+    font-weight: bold;
+    background-color: black;
+    height: 100%;
+    display: grid;
+    justify-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+#body .box .imgBox3 {
+    background-image: url(../img/equipacion.jpeg);
+    background-size: cover;
+    background-position: center;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    transition: all 0.3s ease;
+}
+
+#body .box:hover .frontBox3 {
+    margin-top: -100%;
+}
+
+#body .box .backBox3 {
+    background-color: #272E61;
+    color: white;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    height: 100%;
+    font-weight: 200;
+    font-size: 1.2rem;
+    padding: 5%;
+    font-family: 'Poppins', sans-serif;
+}
+
+#body .backBox3Text h2 {
+    text-align: right;
+}
+
+#body .backBox3Text div {
+    text-align: left;
+    padding-top: 10%;
+}
+
+#body .box .frontBox4 {
+    color: white;
+    font-size: 3em;
+    font-weight: bold;
+    background-color: black;
+    height: 100%;
+    display: grid;
+    justify-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+#body .box .imgBox4 {
+    background-image: url(../img/historia.jpeg);
+    background-size: cover;
+    background-position: center;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    transition: all 0.3s ease;
+}
+
+#body .box:hover .frontBox4 {
+    margin-top: -80%;
+}
+
+#body .box .backBox4 {
+    background-color: #272E61;
+    color: white;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    height: 100%;
+    font-weight: 200;
+    font-size: 1.2rem;
+    padding: 5%;
+    font-family: 'Poppins', sans-serif;
+}
+
+#body .box .frontBox5 {
+    color: white;
+    font-size: 3em;
+    font-weight: bold;
+    background-color: black;
+    height: 100%;
+    display: grid;
+    justify-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+#body .box .imgBox5 {
+    background-image: url(../img/entradas.png);
+    background-size: cover;
+    background-position: center;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    transition: all 0.3s ease;
+}
+
+#body .box:hover .frontBox5 {
+    margin-top: -35%;
+}
+
+#body .box .backBox5 {
+    background-color: #272E61;
+    color: white;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    height: 100%;
+    font-weight: 200;
+    font-size: 1.2rem;
+    padding: 5%;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+.infoBox1 {
+    background-color: #272E61;
+    grid-area: box1;
+}
+
+.infoBox2 {
+    background-color: #272E61;
+    grid-area: box2;
+}
+
+.infoBox3 {
+    background-color: #272E61;
+    grid-area: box3;
+}
+
+.infoBox4 {
+    background-color: #272E61;
+    grid-area: box4;
+}
+
+.infoBox5 {
+    background-color: #272E61;
+    grid-area: box5;
+}
+
+/* TEXT */
+
+
+/* ASIDE */
+
+#aside {
+    grid-area: aside;
+    background-color: #272E61;
+    color: white;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 10% 22% 22% 22% 22%);
+    grid-template-areas: "title" "n1" "n2" "n3" "n4";
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#aside h1 {
+    grid-area: title;
+    font-size: 3em;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+#aside .news {
+    grid-area: n1;
+}
+
+#aside .news2 {
+    grid-area: n2;
+}
+
+#aside .news3 {
+    grid-area: n3;
+}
+
+#aside .news4 {
+    grid-area: n4;
+}
+
+#aside .boxnew {
+    background-color: #272E61;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+
+}
+
+#aside .boxnew h1 {
+    font-size: 2em;
+    font-weight: 200;
+    font-family: 'Poppins', sans-serif;
+}
+
+#aside .boxnew p {
+    width: 70%;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 1.2em;
+    font-weight: 200;
+    font-family: 'Poppins', sans-serif;
+}
+
+#aside .boxnew a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 200;
+    font-family: 'Poppins', sans-serif;
+}
+
+#aside .boxnew a:hover {
+    color: #CB3524;
+    background-color: white;
+}
+
+
+/* FOOTER */
+
+footer {
+    background-color: #272E61;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+i {
+    color: white;
+    font-size: 2.5em;
+    margin: 0 10px;
+}
+
+i:hover {
+    color: #CB3524;
+}
+

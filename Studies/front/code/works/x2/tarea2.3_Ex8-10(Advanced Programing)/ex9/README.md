@@ -1,0 +1,1 @@
+# 9. Define a function that displays information about a text string passed as an argument. From the string passed to it, the function determines whether that string consists of uppercase only, lowercase only, or a mixture of both.

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Tarea 3.2_Listado Strings y RegExp</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script defer type="text/javascript" src="./js/script.js"></script>
+
+	<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<!-- noscript tag for browsers that don't have JavaScript support -->
+<noscript> Your browser does not support JavaScript</noscript>
+
+<main>
+
+	<form action="" class="form" id="form">
+
+		<!-- Capitalize -->
+		<div class="form_group" id="group_capitalize">
+			<label for="capitalize" class="form_label">Capitalize: </label>
+			<div class="form_group_input">
+				<input type="text" class="form_input" name="capitalize" id="capitalize" placeholder="Introduce a string">
+				<em class="form_status_validation fas fa-times-circle"></em>
+			</div>
+			<p class="form_message_error"></p>
+		</div>
+
+		<!-- Reverse -->
+		<div class="form_group" id="group_reverse">
+			<label for="reverse" class="form_label">Reverse: </label>
+			<div class="form_group_input">
+				<input type="text" class="form_input" name="reverse" id="reverse" placeholder="Introduce a string">
+				<em class="form_status_validation fas fa-times-circle"></em>
+			</div>
+			<p class="form_message_error"></p>
+		</div>
+
+		<!-- CamelCase -->
+		<div class="form_group" id="group_camelCase">
+			<label for="camelCase" class="form_label">CamelCase: </label>
+			<div class="form_group_input">
+				<input type="text" class="form_input" name="camelCase" id="camelCase" placeholder="Introduce a string">
+				<em class="form_status_validation fas fa-times-circle"></em>
+			</div>
+			<p class="form_message_error"></p>
+		</div>
+
+		<!-- Without CamelCase -->
+		<div class="form_group" id="group_sinCamelCase">
+			<label for="sinCamelCase" class="form_label">Sin CamelCase: </label>
+			<div class="form_group_input">
+				<input type="text" class="form_input" name="sinCamelCase" id="sinCamelCase" placeholder="Introduce a string">
+				<em class="form_status_validation fas fa-times-circle"></em>
+			</div>
+			<p class="form_message_error"></p>
+		</div>
+
+		<!-- Ending -->
+		<div class="form_group" id="group_end">
+			<label for="end" class="form_label">Ending: </label>
+			<div class="form_group_input">
+				<input type="text" class="form_input" name="end" id="end" placeholder="Introduce a string">
+				<em class="form_status_validation fas fa-times-circle"></em>
+			</div>
+			<p class="form_message_error"></p>
+		</div>
+
+		<!-- Starting -->
+		<div class="form_group" id="group_start">
+			<label for="start" class="form_label">Starting: </label>
+			<div class="form_group_input">
+				<input type="text" class="form_input" name="start" id="start" placeholder="Introduce a string">
+				<em class="form_status_validation fas fa-times-circle"></em>
+			</div>
+			<p class="form_message_error"></p>
+		</div>
+
+		<!-- DNI -->
+		<div class="form_group" id="group_dni">
+			<label for="dni" class="form_label">DNI: </label>
+			<div class="form_group_input">
+				<input type="text" class="form_input" name="dni" id="dni" placeholder="Introduce a string">
+				<em class="form_status_validation fas fa-times-circle"></em>
+			</div>
+			<p class="form_message_error"></p>
+		</div>
+
+		<!-- License Plate -->
+		<div class="form_group" id="group_licensePlate">
+			<label for="licensePlate" class="form_label">License Plate: </label>
+			<div class="form_group_input">
+				<input type="text" class="form_input" name="licensePlate" id="licensePlate" placeholder="Introduce a string">
+				<em class="form_status_validation fas fa-times-circle"></em>
+			</div>
+			<p class="form_message_error"></p>
+		</div>
+
+		<!-- CP -->
+		<div class="form_group" id="group_postalCode">
+			<label for="postalCode" class="form_label">Postal Code: </label>
+			<div class="form_group_input">
+				<input type="text" class="form_input" name="postalCode" id="postalCode" placeholder="Introduce a string">
+				<em class="form_status_validation fas fa-times-circle"></em>
+			</div>
+			<p class="form_message_error"></p>
+		</div>
+
+		<!-- CP -->
+		<div class="form_group" id="group_mac">
+			<label for="mac" class="form_label">MAC: </label>
+			<div class="form_group_input">
+				<input type="text" class="form_input" name="mac" id="mac" placeholder="Introduce a string">
+				<em class="form_status_validation fas fa-times-circle"></em>
+			</div>
+			<p class="form_message_error"></p>
+		</div>
+
+		<!-- CP -->
+		<div class="form_group" id="group_ip">
+			<label for="ip" class="form_label">IP: </label>
+			<div class="form_group_input">
+				<input type="text" class="form_input" name="ip" id="ip" placeholder="Introduce a string">
+				<em class="form_status_validation fas fa-times-circle"></em>
+			</div>
+			<p class="form_message_error"></p>
+		</div>
+
+		<div class="form_group form_group_button">
+			<button type="submit" class="form_button" id="button">Submit</button>
+			<p class="form_success_message" id="form_success_message">Formulario enviado correctamente</p>
+		</div>
+
+	</form>
+</main>
+
+</body>
+</html>

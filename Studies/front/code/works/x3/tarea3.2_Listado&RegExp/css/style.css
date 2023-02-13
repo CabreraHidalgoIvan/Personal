@@ -1,0 +1,140 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: lightgray;
+}
+
+main {
+    max-width: 800px;
+    width: 90%;
+    margin: auto;
+    padding: 40px;
+}
+
+.form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form_label {
+    display: block;
+    font-weight: 700;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.form_group_input {
+    position: relative;
+}
+
+.form_input {
+    width: 100%;
+    background-color: white;
+    border: 3px solid transparent;
+    border-radius: 3px;
+    height: 45px;
+    line-height: 45px;
+    padding: 0 40px 0 10px;
+    transition: .3s ease all;
+}
+
+.form_input:focus {
+    border-color: #0075FF;
+    outline: none;
+    box-shadow: 3px 0 30px rgba(163, 163, 163, 0.4);
+}
+
+.form_message_error {
+    font-size: 12px;
+    margin-bottom: 0;
+    display: none;
+}
+
+.form_message_error:active {
+    display: block;
+}
+
+.form_status_validation {
+    position: absolute;
+    right: 10px;
+
+    bottom: 15px;
+    z-index: 100;
+    font-size: 16px;
+    opacity: 0;
+}
+
+.form_group_button {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form_button {
+    height: 45px;
+    line-height: 45px;
+    width: 30%;
+    background-color: #000;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: .1s ease all;
+}
+
+.form_button:hover {
+    box-shadow: 3px 0 30px #0075FF;
+    background-color: #2b396c;
+}
+
+.form_success_message {
+    font-size: 14px;
+    color: green;
+    display: none;
+}
+
+.form_error_message_active {
+    display: block;
+}
+
+/*Validation styles*/
+.form_group_correct .form_status_validation {
+
+    opacity: 1;
+    color: lawngreen;
+}
+
+.form_group_incorrect .form_label {
+    color: darkred;
+}
+
+.form_group_incorrect .form_status_validation {
+    opacity: 1;
+    color: darkred;
+}
+
+.form_group_incorrect .form_input {
+    border: 3px solid darkred;
+}
+
+/*Media Queries*/
+
+@media screen and (max-width: 800px) {
+    .form {
+        grid-template-columns: 1fr;
+    }
+
+    .form_group_button {
+        grid-column: span 1;
+    }
+
+    .form_button {
+        width: 100%;
+    }
+}

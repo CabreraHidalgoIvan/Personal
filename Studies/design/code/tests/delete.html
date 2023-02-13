@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>CSS Demo: animation-fill-mode</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../css/css-examples-libs.css?v=f41847f" />
+    <link rel="stylesheet" href="../../css/editor-css.css?v=f41847f" />
+    <link rel="stylesheet" href="../.././live-examples/css-examples/animation/animation-fill-mode.css" />
+</head>
+
+<body>
+<section class="css-editor-container">
+    <header class="output-header hidden">
+        <h4 class="output-heading">CSS Demo: animation-fill-mode</h4>
+        <button id="reset" class="reset" type="button">Reset</button>
+    </header>
+    <div class="editor-wrapper">
+        <section id="example-choice-list" class="example-choice-list" data-property="animation-fill-mode">
+            <div class="example-choice">
+        <pre><code class="language-css">animation-fill-mode: none;
+animation-delay: 1s;</code></pre>
+                <button type="button" class="copy hidden" aria-hidden="true">
+                    <span class="visually-hidden">Copy to Clipboard</span>
+                </button>
+            </div>
+
+            <div class="example-choice">
+        <pre><code class="language-css">animation-fill-mode: forwards;
+animation-delay: 1s;</code></pre>
+                <button type="button" class="copy hidden" aria-hidden="true">
+                    <span class="visually-hidden">Copy to Clipboard</span>
+                </button>
+            </div>
+
+            <div class="example-choice">
+        <pre><code class="language-css">animation-fill-mode: backwards;
+animation-delay: 1s;</code></pre>
+                <button type="button" class="copy hidden" aria-hidden="true">
+                    <span class="visually-hidden">Copy to Clipboard</span>
+                </button>
+            </div>
+
+            <div class="example-choice">
+        <pre><code class="language-css">animation-fill-mode: both;
+animation-delay: 1s;</code></pre>
+                <button type="button" class="copy hidden" aria-hidden="true">
+                    <span class="visually-hidden">Copy to Clipboard</span>
+                </button>
+            </div>
+        </section>
+
+        <div id="output" class="output hidden">
+            <section id="default-example" class="flex-column">
+                <div>Animation <span id="playstatus"></span></div>
+
+                <div id="example-element">Select a mode to start!</div>
+            </section>
+        </div>
+
+    </div>
+</section>
+<div id="user-message" class="user-message" aria-hidden="true">Copied!</div>
+<script src="../../js/css-examples-libs.js?v=f41847f"></script>
+<script src="../../js/editor-css.js?v=f41847f"></script>
+<script src="../.././live-examples/css-examples/animation/animation-state.js"></script>
+</body>
+
+</html>
+
+<script>
+  "use strict";
+  window.addEventListener("load", function() {
+    const t = document.getElementById("example-element"),
+        n = document.getElementById("playstatus");
+    function e() {
+      n.textContent = "delaying",
+          t.className = "",
+          window.requestAnimationFrame(function() {
+            window.requestAnimationFrame(function() {
+              t.className = "animating"
+            })
+          })
+    }
+    t.addEventListener("animationstart", function() {
+      n.textContent = "playing"
+    }),
+        t.addEventListener("animationend", function() {
+          n.textContent = "finished"
+        }),
+        new MutationObserver(function() {
+          e()
+        }).observe(t, {
+          attributes: !0,
+          attributeFilter: ["style"]
+        }),
+        e()
+  });
+
+</script>
+
+<style>
+  #example-element {
+    background-color: #1766aa;
+    color: #fff;
+    margin: auto;
+    margin-left: 0;
+    border: 5px solid #333;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column
+  }
+
+  #playstatus {
+    font-weight:700
+  }
+
+  .animating {
+    animation:slide 1s ease-in 1
+  }
+
+  @-webkit-keyframes slide {
+    from {
+      background-color: orange;
+      color: #000;
+      margin-left:0
+    }
+
+    to {
+      background-color: orange;
+      color: #000;
+      margin-left:80%
+    }
+  }
+
+  @keyframes slide {
+    from {
+      background-color: orange;
+      color: #000;
+      margin-left:0
+    }
+
+    to {
+      background-color: orange;
+      color: #000;
+      margin-left: 80%
+    }
+  }
+
+</style>

@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
+
+body {
+  display: inline;
+  box-sizing: border-box;
+}
+
+/* HEADER */
+header {
+  background-color: #FFFFFF;
+  color: black;
+  padding: 10px;
+  text-align: center;
+  font-family: 'Caveat', cursive;
+  font-size: 2.5rem;
+  border: 1px solid black;
+}
+
+/* NAV */
+
+nav {
+  background-color: #FFFFFF;
+  color: black;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid black;
+
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+}
+
+nav ul li {
+  padding: 10px;
+  display: inline;
+
+}
+
+nav ul li a {
+  color: black;
+  font-size: 1.5rem;
+  text-decoration: none;
+  padding-right: 100px;
+}
+
+nav ul li a:hover {
+  color: lightsalmon;
+}
+
+/* MAIN */
+
+main {
+  background-color: #FFFFFF;
+  color: black;
+  padding: 10px;
+  border: 1px solid black;
+  height: 700px;
+}
+
+/* SECTION */
+
+section {
+  background-color: #FFFFFF;
+  color: black;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid black;
+  height: 650px;
+  width: 65%;
+  float: left;
+}
+
+.container {
+  border: 1px solid black;
+  width: 30%;
+  justify-content: flex-end;
+  display: inline;
+  float: left;
+  margin: 50px 10px;
+}
+
+/* ASIDE */
+
+aside {
+  background-color: #FFFFFF;
+  color: black;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid black;
+  height: 650px;
+  width: 30%;
+  float: right;
+}
+
+.archivo {
+  border: 1px solid black;
+  width: 95%;
+  height: 250px;
+  justify-content: flex-end;
+  display: inline;
+  float: left;
+  margin: 10px;
+}
+
+.imp {
+  width: 45%;
+  justify-content: flex-end;
+  display: inline;
+  float: left;
+  margin: 10px;
+}
+
+.publi {
+  border: 1px solid black;
+  width: 95%;
+  height: 350px;
+  justify-content: flex-end;
+  display: inline;
+  float: left;
+  margin: 10px;
+}
+
+
+.img {
+  background-color: gray;
+  width: 100px;
+  height: 100px;
+  margin: 15px 10px 10px 80px;
+  display: inline;
+  float: left;
+}
+
+
+/* FOOTER */
+
+footer {
+  color: black;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid black;
+  height: 150px;
+  width: 100%;
+  clear: both;
+}
+
+.footer {
+  display: inline;
+
+}
+
+.footer h1 {
+  font-size: 2.5rem;
+  font-family: 'Caveat', cursive;
+  width: 100%;
+  text-align: center;
+}
+
+.name {
+  display: inline;
+  float: left;
+  width: 50%;
+  text-align: left;
+  font-size: 2.5rem;
+  font-family: 'Caveat', cursive;
+  margin-left: 30px;
+}
+
+.social {
+    display: inline;
+
+    width: 50%;
+    text-align: right;
+    font-size: 3rem;
+    font-family: 'Caveat', cursive;
+}

@@ -1,0 +1,44 @@
+:root {
+    font-family: Helvetica, sans-serif;
+    font-size: 10px;
+    background-image: url("img/balloons.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.box {
+    background-color: cornflowerblue;
+    border: 4px solid darkblue;
+    margin: 20px;
+    padding: 2px;
+    opacity: 0.2;
+    border-radius: 40%;
+}
+
+.wrapper {
+    font-size: 1em;
+}
+
+.px {
+    width: 200px;
+}
+
+.vw {
+    width: 10vw;
+}
+
+.em {
+    width: 10em;
+}
+
+html {
+    font-size: 16px;
+}
+
+.ems li {
+    font-size: 0.9em;
+}
+
+.rems li {
+    font-size: 1.3rem;
+}

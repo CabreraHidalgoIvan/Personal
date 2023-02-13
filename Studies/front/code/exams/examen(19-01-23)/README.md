@@ -1,0 +1,65 @@
+# Ejercicio 1: Codifica una closure en javascript que consista en una pequeña calculadora.
+* Incluirá una variable "encerrada" llamada "operacion"
+* Tendrá tres funciones.
+* La primera será la función incrementar la cual sumará 1 al valor de la variable "encerrada"
+* La segunda será la función decrementar la cual restará 1 al valor de la variable "encerrada"
+* La tercera será la función "mostrarOperacon" la cual imprimirá por consola el valor
+de la variable "operacion".
+* Inicialmente la variable "operacion" tendrá el valor de 0.
+* La variable "operacion" no podrá ser accedida directamente, sólo desde la closure.
+
+# Ejercicio 2: Codifica una página en html que incluya la siguiente lista anidada.
+```
+    <ul class = "listado">
+        <li class = "liga">1ª DIVISION
+            <ul>
+                <li class = "equipo">Atlético de Madrid</li>
+                <li class = "equipo">Real Madrid
+                    <ul>
+                        <li>FranSecur</li>
+                        <li>Maestre</liclass>
+                        <li>Moyano</li>	
+                    </ul>
+                </li>
+                <li class = "equipo">Osasuna</li>			
+            </ul>
+        </li>
+        <li class = "liga">2ª DIVISION
+            <ul>
+                <li class = "equipo">Minas Riotinto</li>
+                <li class = "equipo">Bollullos Par El Condado</li>
+                <li class = "equipo">Espeleño
+                    <ul>
+                        <li>Sergio</li>
+                        <li>Alejandro</li>
+                        <li>Jose</li>	
+                    </ul>
+                </li>			
+            </ul>
+        </li>
+        <li class = "liga">3ª REGIONAL
+            <ul>
+                <li class = "equipo">Córdoba C.F.
+                    <ul>
+                        <li>Manuel</li>
+                        <li>Andy</li>
+                        <li>Ivan</li>	
+                    </ul>
+                </li>
+                <li class = "equipo">Almería</li>
+                <li class = "equipo">Puente Genil</li>			
+            </ul>
+        </li>
+    </ul>
+```
+* Mediante la asignación de eventos y la propagación en burbuja crea el siguiente comportamiento mediante Javascript:
+  * Cuando se haga "clic" en un jugador, deberá aparecer elnombre del jugador, equipo al que pertenece y la liga en la
+          que juega el equipo. 
+
+  * Ejemplo: si se hace "clic" en FranSecur la consola mostrará un mensaje con lo siguiente:
+                FranSecur juega en el Real Madrid que pertenece a la liga 1ª DIVISIóN.
+        
+  * No es necesario que el mensaje aparezca en una sóla línea, se admite dividido en 
+              máximo tres líneas aunque lo primero incrementará la nota.
+        
+* NO SE PUEDE MODIFICAR EL CÓDIGO HTML DE LA LISTA SIN ORDENAR

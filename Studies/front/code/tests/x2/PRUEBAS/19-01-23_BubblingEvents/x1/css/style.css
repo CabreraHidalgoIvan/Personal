@@ -1,0 +1,17 @@
+.bubblingEvents div {
+    padding: 4rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.one {
+    background-color: #f1c40f;
+}
+
+.two {
+    background-color: #e67e22;
+}
+
+.three {
+    background-color: #e74c3c;
+}

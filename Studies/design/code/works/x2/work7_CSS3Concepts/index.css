@@ -1,0 +1,23 @@
+/*----- Example 1 - Adjacent Sibling Selector -----*/
+
+/* div + p {
+  background-color: yellow;
+}*/
+
+/*----- Example 2 - General Sibling Selector -----*/
+
+div ~ p {
+  background-color: yellow;
+}
+
+/*----- Example 3 - Child Selector -----*/
+
+/* div > p {
+  background-color: yellow;
+} */
+
+/*----- Example 4 - Descendant Selector -----*/
+
+/* div  p {
+  background-color: yellow;
+} */

@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
+
+body {
+    font-family: 'Caveat', cursive;
+    display: flex;
+}
+
+.bg {
+    background-image: url("https://wallpapercave.com/wp/wp7574309.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.row h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: goldenrod;
+    text-align: center;
+    margin: 1rem;
+}
+
+.user {
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 0.7rem;
+
+}
+
+.form-control-user {
+    padding: 0.6rem;
+    font-size: 0.8rem;
+    border-radius: 0.7rem;
+    margin: 0.5rem 0;
+    width: 15rem;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.row {
+    padding: 0 !important;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -0.75rem;
+    margin-left: -0.75rem;
+    justify-content: center;
+
+}
+
+
+.card-body {
+    width: 30rem !important;
+    height: 23rem !important;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 0.7rem;
+}
+
+.btn {
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.7rem;
+    margin: 0.5rem 0;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    width: 15rem;
+    text-align: center;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: darkred;
+}
+
+.btn-primary:focus,
+.btn-primary.focus {
+    box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.5);
+}
+
+.btn-primary.disabled,
+.btn-primary:disabled {
+    color: #fff;
+    background-color: #4e73df;
+    border-color: #4e73df;
+}
+
+.btn-user {
+    color: #fff;
+    background-color: goldenrod;
+}
+
+.small {
+    font-size: 1.2rem;
+}
+
+a {
+    color: goldenrod;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+    text-decoration-skip-ink: auto;
+    outline-color: transparent;
+    -webkit-transition: color 0.2s ease-in-out, background-color
+        0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow
+        0.2s ease-in-out;
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out,
+        border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+a:hover {
+    color: darkred;
+    text-decoration: none;
+}
+
+.custom-checkbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-control-label {
+    font-size: 1rem;
+    line-height: 1.5;
+    color:darkgoldenrod;
+}

@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap');
+
+main {
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+    grid-gap: 10px;
+    grid-template-areas: 'main';
+    padding: 2.5%;
+    background-color: #272E61;
+}
+
+section {
+    min-height: 70vh;
+    box-sizing: border-box;
+    grid-area: main;
+
+}
+
+/* HEADER */
+
+header {
+    background-color: #272E61;
+    display: grid;
+    grid-template-columns: repeat(2, 10% 90%);
+    grid-template-areas: 'logo nav';
+    grid-template-rows: 100%;
+    color: black;
+    width: 100%;
+    padding: 10px;
+}
+
+/* LOGO */
+
+figure {
+    grid-area: logo;
+    margin: 0;
+    padding-left: 5%;
+}
+
+/* NAV */
+
+nav {
+    grid-area: nav;
+    color: #fff;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
+    padding: 2% 10%;
+    margin: 0;
+}
+
+
+nav ul li {
+    font-size: 1.5em;
+    display: inline-block;
+    padding: 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    color: #CB3524;
+}
+
+/* BODY */
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(3, 33%);
+    grid-template-rows: 20% 80%;
+    grid-gap: 10px;
+    grid-template-areas: 'title title title' 'service1 service2 service3';
+}
+
+.title {
+    grid-area: title;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    font-size: 2em;
+    font-weight: 700;
+    color: #CB3524;
+}
+
+.service1 h2,
+.service2 h2,
+.service3 h2 {
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    padding: 10px;
+}
+
+.service1 p,
+.service2 p,
+.service3 p {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    text-align: center;
+    padding: 10px;
+}
+
+.service1 {
+    grid-area: service1;
+    background-color: #272E61;
+    border: 10px solid #CB3524;
+    color: #fff;
+}
+
+.service2 {
+    grid-area: service2;
+    background-color: #272E61;
+    border: 10px solid #CB3524;
+    color: #fff;
+}
+
+.service3 {
+    grid-area: service3;
+    background-color: #272E61;
+    border: 10px solid #CB3524;
+    color: #fff;
+}
+
+/* FOOTER */
+
+footer {
+    background-color: #272E61;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+i {
+    color: white;
+    font-size: 2.5em;
+    margin: 0 10px;
+}
+
+i:hover {
+    color: #CB3524;
+}

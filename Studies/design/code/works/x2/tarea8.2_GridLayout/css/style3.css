@@ -1,0 +1,261 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+header {
+    background-color: #712B46;
+    color: black;
+    padding: 10px;
+    text-align: center;
+}
+
+nav {
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    padding: 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    color: lightsalmon;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-gap: 10px;
+
+    grid-template-areas: 'main aside aside';
+}
+
+
+section {
+    min-height: 70vh;
+    box-sizing: border-box;
+    grid-area: main;
+}
+
+/* ASIDE */
+aside {
+    grid-area: aside;
+    padding: 10px;
+}
+
+body > main > aside {
+    background-color: lightblue;
+    display: grid;
+    grid-template-columns: 90%;
+    grid-template-rows: 10% 45% 45%;
+    justify-content: center;
+    align-content: center;
+    grid-template-areas: 'tittle'
+                         'aside2'
+                         'aside3';
+}
+
+body > main > aside > h2 {
+    grid-area: tittle;
+    text-align: center;
+    font-size: 1.5em;
+    margin: 0;
+    padding: 0;
+}
+
+body > main > aside > div > .tileAside {
+    height: 100%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+body > main > aside > div > div > a {
+    text-decoration: none;
+}
+
+body > main > aside > div > div > a > div.frontAside {
+    color: white;
+    background-color: lightblue;
+    height: 100%;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+
+    transition: all 0.3s ease;
+}
+
+body > main > aside > div > div > a > div.backAside {
+    background-color: lightblue;
+    color: white;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    height: 100%;
+    font-weight: bold;
+    font-size: 28px;
+}
+
+body > main > aside > div > div > a > div.frontAside:hover {
+    margin-top: -60%;
+}
+
+body > main > aside > div > div.tileAside.sales2_tileAside > a > div.frontAside:hover {
+    margin-top: -45%
+}
+
+body > main > aside > div > div:nth-child(1) {
+    grid-area: aside2;
+}
+
+body > main > aside > div > div:nth-child(2) {
+    grid-area: aside3;
+}
+body > main > aside > div > div.tileAside.sales1_tileAside > a > div.frontAside {
+    background-image: url(../img/car-2158284_640.png);
+    background-size: cover;
+    background-position: center center;
+}
+
+body > main > aside > div > div.tileAside.sales2_tileAside > a > div:nth-child(1) {
+    background-image: url(../img/bmw-158703_640.png);
+    background-size: cover;
+    background-position: center center;
+}
+
+body > main > aside > div > div.tileAside.sales1_tileAside {
+    background-color: lightblue;
+    grid-area: aside2;
+}
+
+body > main > aside > div > div.tileAside.sales2_tileAside {
+    background-color: lightblue;
+    grid-area: aside3;
+}
+
+/* MAIN */
+#menu {
+    background-color: lightsalmon;
+    display: grid;
+    grid-template-columns: repeat(4, 200px);    /* 4 columnas de 200px */
+    grid-template-rows: repeat(2, 200px);    /* 2 filas de 200px */
+    justify-content: center;
+    align-content: center;
+    grid-template-areas: 'about about projects projects'
+                         'about about posts contact';
+}
+
+#menu .tile {
+    height: 100%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#menu .tile a{
+    text-decoration: none;
+}
+
+#menu .tile .front {
+    color: white;
+    background-color: black;
+    height: 100%;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+
+    transition: all 0.3s ease;
+}
+
+#menu .tile .back {
+    background-color: lightsalmon;
+    color: white;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    height: 100%;
+    font-weight: bold;
+    font-size: 28px;
+}
+
+#menu .tile:hover .front {
+    margin-top: -100%;
+}
+
+#menu .projects_tile:hover .front {
+    margin-top: -50%;
+}
+
+#menu .about_tile .front {
+    background-image: url(../img/aston-martin-2118857_640.jpg);
+    background-size: auto;
+    background-position: center center;
+}
+
+#menu .projects_tile .front {
+    background-image: url(../img/auto-2179220_640.jpg);
+    background-size: cover;
+    background-position: center center;
+}
+
+#menu .posts_tile .front {
+    background-image: url(../img/car-1300629_640.png);
+    background-size: cover;
+    background-position: center center;
+}
+
+#menu .contact_tile .front {
+    background-image: url(../img/car-2209439_640.png);
+    background-size: cover;
+    background-position: center center;
+}
+
+.about_tile {
+    background-color: lightblue;
+    grid-area: about;
+}
+
+.projects_tile {
+    background-color: lightgreen;
+    grid-area: projects;
+}
+
+.posts_tile {
+    background-color: lightpink;
+    grid-area: posts;
+}
+
+.contact_tile {
+    background-color: lightyellow;
+    grid-area: contact;
+}
+
+footer {
+    background-color: #712B46;
+    color: black;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 10px;
+}

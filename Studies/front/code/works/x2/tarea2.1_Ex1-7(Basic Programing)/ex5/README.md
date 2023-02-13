@@ -1,0 +1,1 @@
+# 5. Complete the if conditions of the following script so that the alert() messages are always displayed correctly:

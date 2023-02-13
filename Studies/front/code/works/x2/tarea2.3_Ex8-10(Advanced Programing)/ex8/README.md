@@ -1,0 +1,1 @@
+# 8. Write the code of a function to which an integer is passed as parameter and returns as result a string indicating whether the number is odd or even. Display the result returned by the function.

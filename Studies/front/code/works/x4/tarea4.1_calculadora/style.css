@@ -1,0 +1,25 @@
+.calculator {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  background-color: #ccc;
+}
+
+.display {
+  text-align: end;
+  background-color: #fff;
+}
+
+.btn {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+  padding: 3px;
+}
+
+.row {
+  text-align: center;
+}

@@ -1,0 +1,153 @@
+html,
+body {
+
+    margin: 0%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    text-align: center;
+    width: 65%;
+    height: auto;
+
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/*------------------- COLUMS -------------------*/
+[class*="col-"] {
+    float: left;
+    max-height: 40em;
+}
+
+.col-1 {
+    width: 8.33%;
+}
+
+.col-2 {
+    width: 16.66%;
+}
+
+.col-3 {
+    width: 25%;
+}
+
+.col-4 {
+    width: 33.33%;
+}
+
+.col-5 {
+    width: 41.66%;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-7 {
+    width: 58.33%;
+}
+
+.col-8 {
+    width: 66.66%;
+}
+
+.col-9 {
+    width: 75%;
+}
+
+.col-10 {
+    width: 83.33%;
+}
+
+.col-11 {
+    width: 91.66%;
+}
+
+.col-12 {
+    width: 100%;
+}
+
+/*-------------------Globales-------------------*/
+.header, .nav, .footer {
+    width: 100%;
+}
+
+.main {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.aside {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #CFFDE1;
+}
+
+.news {
+    background-color: #CFFDE1;
+}
+.news1, .news2{
+    background-color: #68B984;
+}
+
+.head2 {
+    background-color: #3D5656;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-family: 'Share Tech Mono', monospace;
+}
+
+ul {
+    list-style-type: none;
+}
+
+/*-------------------Nav-------------------*/
+
+.nav {
+    background-color: #FED049;
+}
+
+.nav .nav-items {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+}
+
+.nav .nav-items .nav-link {
+    padding: 1.6rem 1rem;
+    font-size: 1.1rem;
+    position: relative;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.nav .nav-items .nav-link:hover {
+    background-color: #F7B169;
+}
+
+.nav .nav-items .nav-link:hover a {
+    color: white;
+}
+
+/*-------------------Body-------------------*/
+
+.aside .social {
+    height: 100%;
+
+}
+
+.media {
+    height: auto;
+    margin: 6.3rem;
+}
+
+/*-------------------Footer-------------------*/
+.footer {
+    background-color: #FED049;
+}

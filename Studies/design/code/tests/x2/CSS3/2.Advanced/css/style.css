@@ -1,0 +1,30 @@
+body {
+
+}
+
+.item {
+    width: 200px;
+    height: 200px;
+    background: red;
+    margin: 20px;
+    clip-path: circle(10% at top left);
+    transition-property: background-color, clip-path;
+    transition-duration: 4s;
+    transition-timing-function: ease;
+    /*/transition-delay: ;/*/
+}
+
+.container {
+    display: inline-flex;
+    background-color: aqua;
+}
+
+.container:hover .item {
+    background-color: blue;
+    width: 200px;
+    clip-path: circle(70% at bottom right);
+}
+.container:active .item{
+    background-color: green;
+}
+

@@ -1,0 +1,1 @@
+## Create a script that informs the user in which zone of the screen he/she has clicked the mouse. The defined zones are: left up, left down, right up and right down. To determine the size of the browser window, use the provided function browserWindowSize().
