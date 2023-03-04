@@ -36,6 +36,9 @@ class Tarea
     #[ORM\JoinColumn(nullable: false)]
     private ?EstadoTarea $estado = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $nombre = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -99,6 +102,18 @@ class Tarea
     public function setEstado(?EstadoTarea $estado): self
     {
         $this->estado = $estado;
+
+        return $this;
+    }
+
+    public function getNombre(): ?string
+    {
+        return $this->nombre;
+    }
+
+    public function setNombre(string $nombre): self
+    {
+        $this->nombre = $nombre;
 
         return $this;
     }

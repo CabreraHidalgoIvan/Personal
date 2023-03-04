@@ -12,7 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class TareaType extends AbstractType
+class TareaUserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -23,12 +23,6 @@ class TareaType extends AbstractType
                 'class' => EstadoTarea::class,
                 'choice_label' => 'nombre',
                 'label' => 'Estado',
-                'required' => true,
-            ])
-            ->add('usuario', EntityType::class, [
-                'class' => User::class,
-                'choice_label' => 'nombre',
-                'label' => 'User',
                 'required' => true,
             ])
             ->add('finalizada', CheckboxType::class)

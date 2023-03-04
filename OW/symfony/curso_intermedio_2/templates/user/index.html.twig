@@ -9,7 +9,9 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Name</th>
                 <th>Email</th>
+                <th>Direction</th>
                 <th>Roles</th>
                 <th>Último Acceso</th>
                 <th>actions</th>
@@ -19,7 +21,9 @@
         {% for user in users %}
             <tr>
                 <td>{{ user.id }}</td>
+                <td>{{ user.nombre }}</td>
                 <td>{{ user.email }}</td>
+                <td>{{ user.direccion }}</td>
                 <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
                 <td>{{ user.ultimoAcces|date('d/m/Y H:i:s') }}</td>
                 <td>
@@ -35,5 +39,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_user_new') }}">Create new</a>
+    <a href="{{ path('app_register') }}">Create new</a>
 {% endblock %}

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Tarea;
 use App\Form\TareaType;
+use App\Form\TareaUserType;
 use App\Repository\TareaRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,6 +32,30 @@ class TareaController extends AbstractController
 
         $tarea = new Tarea();
         $form = $this->createForm(TareaType::class, $tarea);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            if ($tarea->getUsuario() === $this->getUser()) {
+                $tarea->setUsuario($this->getUser());
+            }
+            $tareaRepository->save($tarea, true);
+
+            return $this->redirectToRoute('app_tarea_index', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('tarea/new.html.twig', [
+            'tarea' => $tarea,
+            'form' => $form,
+        ]);
+    }
+
+    #[Route('/newUser', name: 'app_tarea_newUser', methods: ['GET', 'POST'])]
+    public function newUser(Security $security, Request $request, TareaRepository $tareaRepository): Response
+    {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+
+        $tarea = new Tarea();
+        $form = $this->createForm(TareaUserType::class, $tarea);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -62,6 +87,26 @@ class TareaController extends AbstractController
         $this->denyAccessUnlessGranted('ROLE_USER');
 
         $form = $this->createForm(TareaType::class, $tarea);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $tareaRepository->save($tarea, true);
+
+            return $this->redirectToRoute('app_tarea_index', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('tarea/edit.html.twig', [
+            'tarea' => $tarea,
+            'form' => $form,
+        ]);
+    }
+
+    #[Route('/{id}/editUser', name: 'app_tarea_editUser', methods: ['GET', 'POST'])]
+    public function editUser(Request $request, Tarea $tarea, TareaRepository $tareaRepository): Response
+    {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+
+        $form = $this->createForm(TareaUserType::class, $tarea);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

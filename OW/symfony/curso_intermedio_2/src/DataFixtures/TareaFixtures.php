@@ -13,6 +13,7 @@ class TareaFixtures extends Fixture implements DependentFixtureInterface
     {
         for ($i = 0; $i < 20; $i++) {
             $tarea = new Tarea();
+            $tarea->setNombre('Nombre Tarea - ' . $i);
             $tarea->setDescripcion('Tarea de prueba admin -' . $i);
             $tarea->setFinalizada(0);
             $tarea->setUsuario($this->getReference(UserFixtures::USUARIO_ADMIN_REFERENCIA));
@@ -22,6 +23,7 @@ class TareaFixtures extends Fixture implements DependentFixtureInterface
 
         for ($i = 0; $i < 20; $i++) {
             $tarea = new Tarea();
+            $tarea->setNombre('Nombre Tarea - ' . $i);
             $tarea->setDescripcion('Tarea de prueba user -' . $i);
             $tarea->setFinalizada(0);
             $tarea->setUsuario($this->getReference(UserFixtures::USUARIO_USER_REFERENCIA));

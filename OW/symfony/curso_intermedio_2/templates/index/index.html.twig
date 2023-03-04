@@ -10,6 +10,7 @@
         <thead>
         <tr>
             <th scope="col">#</th>
+            <th scope="col">Nombre</th>
             <th scope="col">Descripción</th>
             <th scope="col">Estado</th>
             <th scope="col">Usuario</th>
@@ -21,6 +22,9 @@
         {% for index, tarea in tareas %}
             <tr>
                 <th scope="row">{{ index + 1 }}</th>
+                <td>
+                    {{ tarea.nombre }}
+                </td>
                 <td class="descripcion">
                     {% if tarea.finalizada %}
                         <s>{{ tarea.descripcion }}</s>
@@ -35,14 +39,19 @@
                 </td>
 
                 <td>
-                    {{ tarea.usuario.email }}
+                    {{ tarea.usuario.nombre }}
                 </td>
 
                 <td>
                     {{ tarea.creadoEn | tiempo}}
                 </td>
                 <td>
+                    {% if is_granted('ROLE_ADMIN') %}
                     <a href="{{ path('app_tarea_edit', {'id': tarea.id}) }}" class="btn btn-primary">Editar</a>
+                    {% endif %}
+                    {% if not is_granted('ROLE_ADMIN') %}
+                        <a href="{{ path('app_tarea_editUser', {'id': tarea.id}) }}" class="btn btn-primary">Editar</a>
+                    {% endif %}
                     <a href="{{ path('app_tarea_delete', {'id': tarea.id}) }}" class="btn btn-danger">Eliminar</a>
                     <a href="#" class="btn btn-link mg-3 finalizar"
                        data-url="{{ path('app_tarea_finalizar', {'id': tarea.id}) }}"

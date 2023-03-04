@@ -20,7 +20,9 @@ class UserFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $usuario = new User();
+        $usuario->setNombre('admin');
         $usuario->setEmail('admin@admin.com');
+        $usuario->setDireccion('adminDireccion');
         $usuario->setRoles(['ROLE_ADMIN', 'ROLE_USER']);
         $usuario->setPassword($this->passwordHasher->hashPassword($usuario, 'admin'));
         $manager->persist($usuario);
@@ -28,7 +30,9 @@ class UserFixtures extends Fixture
         $this->addReference(self::USUARIO_ADMIN_REFERENCIA, $usuario);
 
         $usuario = new User();
+        $usuario->setNombre('user');
         $usuario->setEmail('user@user.com');
+        $usuario->setDireccion('userDireccion');
         $usuario->setRoles(['ROLE_USER']);
         $usuario->setPassword($this->passwordHasher->hashPassword($usuario, 'user'));
         $manager->persist($usuario);
