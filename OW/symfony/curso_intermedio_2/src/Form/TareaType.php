@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\EstadoTarea;
 use  App\Entity\Tarea;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -15,6 +17,12 @@ class TareaType extends AbstractType
     {
         $builder
             ->add('descripcion', TextType::class)
+            ->add('estado', EntityType::class, [
+                'class' => EstadoTarea::class,
+                'choice_label' => 'nombre',
+                'label' => 'Estado',
+                'required' => true,
+            ])
             ->add('finalizada', CheckboxType::class)
         ;
     }

@@ -11,7 +11,9 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">Descripción</th>
-            <th scope="col">Creado en</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Usuario</th>
+            <th scope="col">Fecha Creación</th>
             <th scope="col">Acciones</th>
         </tr>
         </thead>
@@ -27,6 +29,15 @@
                     {% endif %}
 
                 </td>
+
+                <td>
+                    {{ tarea.estado.nombre }}
+                </td>
+
+                <td>
+                    {{ tarea.usuario.email }}
+                </td>
+
                 <td>
                     {{ tarea.creadoEn | tiempo}}
                 </td>
