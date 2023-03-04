@@ -30,7 +30,7 @@ class UserFixtures extends Fixture
         $usuario = new User();
         $usuario->setEmail('user@user.com');
         $usuario->setRoles(['ROLE_USER']);
-        $usuario->setPassword($this->passwordHasher->hashPassword($usuario, 'admin'));
+        $usuario->setPassword($this->passwordHasher->hashPassword($usuario, 'user'));
         $manager->persist($usuario);
         $manager->flush();
         $this->addReference(self::USUARIO_USER_REFERENCIA, $usuario);

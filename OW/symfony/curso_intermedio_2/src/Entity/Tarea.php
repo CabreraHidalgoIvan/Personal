@@ -32,6 +32,10 @@ class Tarea
     #[ORM\JoinColumn(nullable: false)]
     private ?User $usuario = null;
 
+    #[ORM\ManyToOne(inversedBy: 'tareas')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?EstadoTarea $estado = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -83,6 +87,18 @@ class Tarea
     public function setUsuario(?User $usuario): self
     {
         $this->usuario = $usuario;
+
+        return $this;
+    }
+
+    public function getEstado(): ?EstadoTarea
+    {
+        return $this->estado;
+    }
+
+    public function setEstado(?EstadoTarea $estado): self
+    {
+        $this->estado = $estado;
 
         return $this;
     }
