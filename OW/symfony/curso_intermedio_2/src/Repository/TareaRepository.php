@@ -100,4 +100,31 @@ class TareaRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+    public function buscarTodasFiltradas($pagina = 1, $elementosPorPagina = 5, string $nombre = null, string $descripcion = null, string $estado = null): array
+    {
+        $qb = $this->createQueryBuilder('t')
+            ->orderBy('t.creadoEn', 'DESC')
+            ->setMaxResults($elementosPorPagina)
+            ->setFirstResult(($pagina - 1) * $elementosPorPagina);
+
+        if ($nombre) {
+            $qb->andWhere('t.nombre LIKE :nombre')
+                ->setParameter('nombre', '%' . $nombre . '%');
+        }
+
+        if ($descripcion) {
+            $qb->andWhere('t.descripcion LIKE :descripcion')
+                ->setParameter('descripcion', '%' . $descripcion . '%');
+        }
+
+        if ($estado) {
+            $qb->andWhere('t.estado = :estado')
+                ->setParameter('estado', $estado);
+        }
+
+        return $qb->getQuery()->getResult();
+    }
+
+
 }

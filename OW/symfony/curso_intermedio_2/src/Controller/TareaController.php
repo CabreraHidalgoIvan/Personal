@@ -133,7 +133,7 @@ class TareaController extends AbstractController
         return $this->redirectToRoute('app_tarea_index', [], Response::HTTP_SEE_OTHER);
     }
 
-    #[Route('/{id}', name: 'app_tarea_finalizar', methods: ['POST'])]
+/*    #[Route('/{id}', name: 'app_tarea_finalizar', methods: ['POST'])]
     public function finalizar(Request $request, Tarea $tarea, TareaRepository $tareaRepository): Response
     {
         $this->denyAccessUnlessGranted('ROLE_USER');
@@ -147,5 +147,5 @@ class TareaController extends AbstractController
         }
 
         throw $this->createNotFoundException();
-    }
+    }*/
 }

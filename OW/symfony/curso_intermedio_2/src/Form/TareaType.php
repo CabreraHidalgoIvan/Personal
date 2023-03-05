@@ -31,7 +31,6 @@ class TareaType extends AbstractType
                 'label' => 'User',
                 'required' => true,
             ])
-            ->add('finalizada', CheckboxType::class)
         ;
     }
 

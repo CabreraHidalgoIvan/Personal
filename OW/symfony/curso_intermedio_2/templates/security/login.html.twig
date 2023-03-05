@@ -38,16 +38,13 @@
         #}
 
 
-        <button class="btn btn-lg btn-primary" type="submit">
+        <button class="btn-back" type="submit">
             Sign in
         </button>
     </form>
     <div class="row">
         <div class="col-12">
-            <a href="{{ path('app_register') }}">Register</a>
+            <a href="{{ path('app_register') }}" class="btn-save">Register</a>
         </div>
-        {#<div class="col-md-6">
-            <a href="{{ path('app_forgot_password_request') }}">Forgot password</a>
-        </div>#}
     </div>
 {% endblock %}

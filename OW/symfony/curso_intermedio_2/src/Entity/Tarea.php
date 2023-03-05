@@ -22,9 +22,6 @@ class Tarea
     #[Assert\NotBlank(message: 'Es necesario que introduzcas una descripción.')]
     private ?string $descripcion = null;
 
-    #[ORM\Column]
-    private ?bool $finalizada = null;
-
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $creadoEn = null;
 
@@ -52,18 +49,6 @@ class Tarea
     public function setDescripcion(string $descripcion): self
     {
         $this->descripcion = $descripcion;
-
-        return $this;
-    }
-
-    public function getFinalizada(): ?bool
-    {
-        return $this->finalizada;
-    }
-
-    public function setFinalizada(bool $finalizada): self
-    {
-        $this->finalizada = $finalizada;
 
         return $this;
     }

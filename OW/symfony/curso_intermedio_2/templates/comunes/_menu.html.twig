@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="{{ path('app_index') }}">Inicio</a>
+<nav class="nav navbar navbar-expand-lg navbar-light bg-dark">
+    <a class="inicio navbar-brand" href="{{ path('app_index') }}">Inicio</a>
     <button class="navbar-toggler"
             type="button"
             data-toggle="collapse"
@@ -10,7 +10,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="links collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             {% if is_granted('ROLE_ADMIN') %}
                 <li class="nav-item active">
@@ -42,15 +42,17 @@
             </li>
             {% endif %}
 
-            {%  if app.user %}
-
+        </ul>
+    </div>
+    {%  if app.user %}
+    <div class=" logout collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
                 <a class="nav-link" href="{{ path('app_logout') }}">
                     Cerrar sesión ({{ app.user.email }}) - ({{ app.user.ultimoAcces|date('d/m/Y H:i:s') }})
                 </a>
             </li>
-            {% endif %}
-
         </ul>
     </div>
+    {% endif %}
 </nav>

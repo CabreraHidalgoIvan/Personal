@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Form\FiltroTareasType;
 use App\Repository\TareaRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -17,15 +19,21 @@ class IndexController extends AbstractController
         requirements: ['pagina' => '\d+'],
         defaults: ['pagina' => 1],
         methods: ['GET'])]
-    public function index(int $pagina, TareaRepository $tareaRepository): Response
+    public function index(int $pagina, TareaRepository $tareaRepository, Request $request): Response
     {
         $this->denyAccessUnlessGranted('ROLE_USER');
+
+        $filter_form = $this->createForm(FiltroTareasType::class, null, [
+            'method' => 'GET',
+        ]);
+        $filter_form->handleRequest($request);
 
         return $this->render(
             'index/index.html.twig',
             [
                 'tareas' => $tareaRepository->buscarTodas($pagina, self::ELEMENTS_PER_PAGE),
                 'pagina' => $pagina,
+                'filtro_form' => $filter_form->createView(),
             ]
         );
     }

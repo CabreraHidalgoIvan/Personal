@@ -15,7 +15,6 @@ class TareaFixtures extends Fixture implements DependentFixtureInterface
             $tarea = new Tarea();
             $tarea->setNombre('Nombre Tarea - ' . $i);
             $tarea->setDescripcion('Tarea de prueba admin -' . $i);
-            $tarea->setFinalizada(0);
             $tarea->setUsuario($this->getReference(UserFixtures::USUARIO_ADMIN_REFERENCIA));
             $tarea->setEstado($this->getReference(EstadoFixtures::ESTADO_PENDIENTE_REFERENCIA));
             $manager->persist($tarea);
@@ -25,7 +24,6 @@ class TareaFixtures extends Fixture implements DependentFixtureInterface
             $tarea = new Tarea();
             $tarea->setNombre('Nombre Tarea - ' . $i);
             $tarea->setDescripcion('Tarea de prueba user -' . $i);
-            $tarea->setFinalizada(0);
             $tarea->setUsuario($this->getReference(UserFixtures::USUARIO_USER_REFERENCIA));
             $tarea->setEstado($this->getReference(EstadoFixtures::ESTADO_PENDIENTE_REFERENCIA));
             $manager->persist($tarea);
