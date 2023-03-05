@@ -3,10 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\Tarea;
+use App\Form\FiltroTareasType;
 use App\Form\TareaType;
 use App\Form\TareaUserType;
 use App\Repository\TareaRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,12 +19,26 @@ use Symfony\Component\Security\Core\Security;
 class TareaController extends AbstractController
 {
     #[Route('/', name: 'app_tarea_index', methods: ['GET'])]
-    public function index(TareaRepository $tareaRepository): Response
+    public function index(TareaRepository $tareaRepository, Request $request): Response
     {
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
+        $filtroForm = $this->createForm(FiltroTareasType::class);
+        $filtroForm->handleRequest($request);
+
+        if ($filtroForm->isSubmitted() && $filtroForm->isValid()) {
+            $nombre = $filtroForm->get('nombre')->getData();
+            $descripcion = $filtroForm->get('descripcion')->getData();
+            $estado = $filtroForm->get('estado')->getData();
+
+            $tareas = $tareaRepository->buscarConFiltros(1, 5, $nombre, $descripcion, $estado);
+        } else {
+            $tareas = $tareaRepository->buscarTodas(1, 5);
+        }
+
+
         return $this->render('index/index.html.twig', [
-            'tareas' => $tareaRepository->findAll(),
+            'tareas' => $tareas,
         ]);
     }
 
@@ -133,19 +150,4 @@ class TareaController extends AbstractController
         return $this->redirectToRoute('app_tarea_index', [], Response::HTTP_SEE_OTHER);
     }
 
-/*    #[Route('/{id}', name: 'app_tarea_finalizar', methods: ['POST'])]
-    public function finalizar(Request $request, Tarea $tarea, TareaRepository $tareaRepository): Response
-    {
-        $this->denyAccessUnlessGranted('ROLE_USER');
-
-        if ($request->isXmlHttpRequest()) {
-            $tarea->setFinalizada(!$tarea->getFinalizada());
-            $tareaRepository->save($tarea, true);
-            return $this->json([
-                'finalizada' => $tarea->getFinalizada()
-            ]);
-        }
-
-        throw $this->createNotFoundException();
-    }*/
 }
