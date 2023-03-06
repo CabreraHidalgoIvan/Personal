@@ -215,7 +215,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function isActive(): bool
     {
-        return $this->activo;
+        return $this->activo === true;
     }
 
     public function setActivo(bool $activo): self
