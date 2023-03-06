@@ -24,6 +24,7 @@ class UserFixtures extends Fixture
         $usuario->setEmail('admin@admin.com');
         $usuario->setDireccion('adminDireccion');
         $usuario->setRoles(['ROLE_ADMIN', 'ROLE_USER']);
+        $usuario->setActivo(true);
         $usuario->setPassword($this->passwordHasher->hashPassword($usuario, 'admin'));
         $manager->persist($usuario);
         $manager->flush();
@@ -34,6 +35,7 @@ class UserFixtures extends Fixture
         $usuario->setEmail('user@user.com');
         $usuario->setDireccion('userDireccion');
         $usuario->setRoles(['ROLE_USER']);
+        $usuario->setActivo(true);
         $usuario->setPassword($this->passwordHasher->hashPassword($usuario, 'user'));
         $manager->persist($usuario);
         $manager->flush();

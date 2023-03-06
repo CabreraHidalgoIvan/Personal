@@ -104,4 +104,15 @@ class UserController extends AbstractController
 
         return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    #[Route('/{id}/disable', name: 'app_user_disable', methods: ['GET'])]
+    public function disable(Request $request, User $user, UserRepository $userRepository)
+    {
+        $user->setActivo(false);
+        $userRepository->save($user, true);
+
+        $this->addFlash('success', 'La cuenta del usuario ha sido deshabilitada');
+
+        return $this->redirectToRoute('app_user_edit', ['id' => $user->getId()]);
+    }
 }
