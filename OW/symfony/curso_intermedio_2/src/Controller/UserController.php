@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\FiltroUsersType;
 use App\Form\UserType;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,6 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/user')]
 class UserController extends AbstractController
 {
+    const ELEMENTOS_POR_PAGINA = 10;
     private $passwordHasher;
     public function __construct(UserPasswordHasherInterface $passwordHasher)
     {
@@ -21,10 +23,29 @@ class UserController extends AbstractController
     }
 
     #[Route('/list', name: 'app_user_index', methods: ['GET'])]
-    public function index(UserRepository $userRepository): Response
+    public function index(UserRepository $userRepository, Request $request): Response
     {
+        $filter_form = $this->createForm(FiltroUsersType::class, null, [
+            'method' => 'GET',
+        ]);
+        $filter_form->handleRequest($request);
+
+        $nombre = $filter_form->get('nombre')->getData();
+        $email = $filter_form->get('email')->getData();
+        $rol = $filter_form->get('roles')->getData();
+
+        $pagina = $request->query->get('pagina', 1);
+
+        if ($nombre || $email || $rol) {
+            $users = $userRepository->buscarConFiltros($pagina, 5, $nombre, $email, $rol);
+        } else {
+            $users = $userRepository->buscarTodos($pagina, 5);
+        }
+
         return $this->render('user/index.html.twig', [
-            'users' => $userRepository->findAll(),
+            'users' => $users,
+            'pagina' => $pagina,
+            'filtro_form' => $filter_form->createView(),
         ]);
     }
 

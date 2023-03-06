@@ -116,5 +116,4 @@ class TareaRepository extends ServiceEntityRepository
     }
 
 
-
 }

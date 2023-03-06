@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -80,4 +81,51 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 //            ->getOneOrNullResult()
 //        ;
 //    }
+    public function paginacion($dql, $pagina, $elementosPorPagina)
+    {
+        $paginador = new Paginator($dql);
+        $paginador->getQuery()
+            ->setFirstResult($elementosPorPagina * ($pagina - 1))
+            ->setMaxResults($elementosPorPagina);
+        return $paginador;
+    }
+
+    public function buscarTodos($pagina = 1, $elementosPorPagina = 10)
+    {
+        $query = $this->createQueryBuilder('u')
+            ->orderBy('u.id', 'ASC');
+
+
+        return $this->paginacion($query->getQuery(), $pagina, $elementosPorPagina);
+    }
+
+    public function buscarConFiltros($pagina = 1, $elementosPorPagina = 10, string $nombre = null, string $email = null, string $rol = null)
+    {
+        $query = $this->createQueryBuilder('u')
+            ->orderBy('u.id', 'ASC');
+
+        $condiciones = [];
+
+        if ($nombre) {
+            $condiciones[] = $query->andWhere('u.nombre LIKE :nombre')
+                ->setParameter('nombre', "%$nombre%");
+        }
+
+        if ($email) {
+            $condiciones[] = $query->andWhere('u.email LIKE :email')
+                ->setParameter('email', "%$email%");
+        }
+
+        if ($rol) {
+            $condiciones[] = $query->andWhere('u.rol LIKE :rol')
+                ->setParameter('rol', "%$rol%");
+        }
+
+        foreach ($condiciones as $condicion) {
+            $query = $condicion;
+        }
+
+        return $this->paginacion($query->getQuery(), $pagina, $elementosPorPagina);
+    }
+
 }
