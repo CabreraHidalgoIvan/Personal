@@ -22,8 +22,8 @@ class UserController extends AbstractController
         $this->passwordHasher = $passwordHasher;
     }
 
-    #[Route('/list', name: 'app_user_index', methods: ['GET'])]
-    public function index(UserRepository $userRepository, Request $request): Response
+    #[Route('/list/{pagina}', name: 'app_user_index', methods: ['GET'], requirements: ['pagina' => '\d+'], defaults: ['pagina' => 1])]
+    public function index(int $pagina, UserRepository $userRepository, Request $request): Response
     {
         $filter_form = $this->createForm(FiltroUsersType::class, null, [
             'method' => 'GET',
@@ -34,12 +34,10 @@ class UserController extends AbstractController
         $email = $filter_form->get('email')->getData();
         $rol = $filter_form->get('roles')->getData();
 
-        $pagina = $request->query->get('pagina', 1);
-
         if ($nombre || $email || $rol) {
-            $users = $userRepository->buscarConFiltros($pagina, 5, $nombre, $email, $rol);
+            $users = $userRepository->buscarConFiltros($pagina, 10, $nombre, $email, $rol);
         } else {
-            $users = $userRepository->buscarTodos($pagina, 5);
+            $users = $userRepository->buscarTodos($pagina, 10);
         }
 
         return $this->render('user/index.html.twig', [
@@ -57,6 +55,7 @@ class UserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $user->setRoles(['ROLE_USER']);
             $user->setPassword($this->passwordHasher->hashPassword($user, $user->getPassword()));
             $userRepository->save($user, true);
 

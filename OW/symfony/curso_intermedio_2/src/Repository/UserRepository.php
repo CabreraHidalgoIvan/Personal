@@ -90,42 +90,46 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         return $paginador;
     }
 
-    public function buscarTodos($pagina = 1, $elementosPorPagina = 10)
+    public function buscarTodos($pagina = 1, $elementosPorPagina = 5)
     {
         $query = $this->createQueryBuilder('u')
-            ->orderBy('u.id', 'ASC');
+            ->orderBy('u.id', 'ASC')
+            ->getQuery();
 
 
-        return $this->paginacion($query->getQuery(), $pagina, $elementosPorPagina);
+        return $this->paginacion($query, $pagina, $elementosPorPagina);
     }
 
-    public function buscarConFiltros($pagina = 1, $elementosPorPagina = 10, string $nombre = null, string $email = null, string $rol = null)
+    public function buscarConFiltros($pagina = 1, $elementosPorPagina = 5, string $nombre = null, string $email = null, string $roles = null)
     {
-        $query = $this->createQueryBuilder('u')
+        $qb = $this->createQueryBuilder('u')
             ->orderBy('u.id', 'ASC');
 
         $condiciones = [];
+        $parametros = [];
 
         if ($nombre) {
-            $condiciones[] = $query->andWhere('u.nombre LIKE :nombre')
-                ->setParameter('nombre', "%$nombre%");
+            $condiciones[] = 'u.nombre LIKE :nombre';
+            $parametros['nombre'] = "%$nombre%";
         }
 
         if ($email) {
-            $condiciones[] = $query->andWhere('u.email LIKE :email')
-                ->setParameter('email', "%$email%");
+            $condiciones[] = 'u.email LIKE :email';
+            $parametros['email'] = "%$email%";
         }
 
-        if ($rol) {
-            $condiciones[] = $query->andWhere('u.rol LIKE :rol')
-                ->setParameter('rol', "%$rol%");
+        if ($roles) {
+            $condiciones[] = 'u.roles LIKE :roles';
+            $parametros['roles'] = "%$roles%";
         }
 
-        foreach ($condiciones as $condicion) {
-            $query = $condicion;
+        if (!empty($condiciones)) {
+            $qb->andWhere(implode(' AND ', $condiciones))
+                ->setParameters($parametros);
         }
 
-        return $this->paginacion($query->getQuery(), $pagina, $elementosPorPagina);
+        return $this->paginacion($qb, $pagina, $elementosPorPagina);
     }
+
 
 }
