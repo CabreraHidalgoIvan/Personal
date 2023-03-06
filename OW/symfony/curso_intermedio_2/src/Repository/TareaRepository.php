@@ -39,7 +39,7 @@ class TareaRepository extends ServiceEntityRepository
     public function buscarTodas($pagina = 1, $elementosPorPagina = 5)
     {
         $query = $this->createQueryBuilder('t')
-            ->addOrderBy('t.creadoEn', 'DESC')
+            ->addOrderBy('t.creadoEn', 'ASC')
             ->andWhere('t.usuario = :usuario')
             ->setParameter('usuario', $this->usuario)
             ->getQuery();
@@ -74,61 +74,47 @@ class TareaRepository extends ServiceEntityRepository
         }
     }
 
-
-
-//    /**
-//     * @return TareaFixtures[] Returns an array of TareaFixtures objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('t')
-//            ->andWhere('t.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('t.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
-
-//    public function findOneBySomeField($value): ?TareaFixtures
-//    {
-//        return $this->createQueryBuilder('t')
-//            ->andWhere('t.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
-
-    public function buscarConFiltros($pagina = 1, $elementosPorPagina = 5, string $nombre = null, string $descripcion = null, string $estado = null): array
+    public function buscarConFiltros($pagina = 1, $elementosPorPagina = 5, string $nombre = null, string $descripcion = null, string $estado = null): Paginator
     {
-        $qb = $this->createQueryBuilder('t')
-            ->orderBy('t.creadoEn', 'DESC')
-            ->setMaxResults($elementosPorPagina)
-            ->setFirstResult(($pagina - 1) * $elementosPorPagina);
+        $query = $this->createQueryBuilder('t')
+            ->addOrderBy('t.creadoEn', 'DESC')
+            ->andWhere('t.usuario = :usuario')
+            ->setParameter('usuario', $this->usuario)
+            ->getQuery();
 
         if ($nombre) {
-            $qb->andWhere('t.nombre LIKE :nombre')
-                ->setParameter('nombre', '%' . $nombre . '%');
+            $query = $this->createQueryBuilder('t')
+                ->addOrderBy('t.creadoEn', 'DESC')
+                ->andWhere('t.usuario = :usuario')
+                ->andWhere('t.nombre LIKE :nombre')
+                ->setParameter('usuario', $this->usuario)
+                ->setParameter('nombre', "%$nombre%")
+                ->getQuery();
         }
 
         if ($descripcion) {
-            $qb->andWhere('t.descripcion LIKE :descripcion')
-                ->setParameter('descripcion', '%' . $descripcion . '%');
+            $query = $this->createQueryBuilder('t')
+                ->addOrderBy('t.creadoEn', 'DESC')
+                ->andWhere('t.usuario = :usuario')
+                ->andWhere('t.descripcion LIKE :descripcion')
+                ->setParameter('usuario', $this->usuario)
+                ->setParameter('descripcion', "%$descripcion%")
+                ->getQuery();
         }
 
         if ($estado) {
-            $qb->andWhere('t.estado = :estado')
-                ->setParameter('estado', $estado);
+            $query = $this->createQueryBuilder('t')
+                ->addOrderBy('t.creadoEn', 'DESC')
+                ->andWhere('t.usuario = :usuario')
+                ->andWhere('t.estado = :estado')
+                ->setParameter('usuario', $this->usuario)
+                ->setParameter('estado', $estado)
+                ->getQuery();
         }
 
-        if (empty($nombre) && empty($descripcion) && empty($estado)) {
-            return $this->buscarTodas($pagina, $elementosPorPagina);
-        }
-
-        return $qb->getQuery()->getResult();
+        return $this->paginacion($query, $pagina, $elementosPorPagina);
     }
+
 
 
 }

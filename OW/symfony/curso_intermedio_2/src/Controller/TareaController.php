@@ -22,23 +22,8 @@ class TareaController extends AbstractController
     public function index(TareaRepository $tareaRepository, Request $request): Response
     {
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
-
-        $filtroForm = $this->createForm(FiltroTareasType::class);
-        $filtroForm->handleRequest($request);
-
-        if ($filtroForm->isSubmitted() && $filtroForm->isValid()) {
-            $nombre = $filtroForm->get('nombre')->getData();
-            $descripcion = $filtroForm->get('descripcion')->getData();
-            $estado = $filtroForm->get('estado')->getData();
-
-            $tareas = $tareaRepository->buscarConFiltros(1, 5, $nombre, $descripcion, $estado);
-        } else {
-            $tareas = $tareaRepository->buscarTodas(1, 5);
-        }
-
-
         return $this->render('index/index.html.twig', [
-            'tareas' => $tareas,
+            'tareas' => $tareaRepository->findAll(),
         ]);
     }
 

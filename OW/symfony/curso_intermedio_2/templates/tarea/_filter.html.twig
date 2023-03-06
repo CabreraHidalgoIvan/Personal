@@ -11,9 +11,5 @@
     {{ form_label(filtro_form.estado, 'Estado:', { 'label_attr': { 'class': 'mr-2' } }) }}
     {{ form_widget(filtro_form.estado, { 'attr': { 'class': 'form-control mr-2' } }) }}
 </div>
-<div class="form-group mr-3">
-    {{ form_label(filtro_form.creadoEn, 'Fecha:', { 'label_attr': { 'class': 'mr-2' } }) }}
-    {{ form_widget(filtro_form.creadoEn, { 'attr': { 'class': 'form-control mr-2' } }) }}
-</div>
 <button type="submit" class="btn-back">Filtrar</button>
 {{ form_end(filtro_form) }}

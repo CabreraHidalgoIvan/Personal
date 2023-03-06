@@ -28,10 +28,20 @@ class IndexController extends AbstractController
         ]);
         $filter_form->handleRequest($request);
 
+        $nombre = $filter_form->get('nombre')->getData();
+        $descripcion = $filter_form->get('descripcion')->getData();
+        $estado = $filter_form->get('estado')->getData();
+
+        if ($nombre || $descripcion || $estado) {
+            $tareas = $tareaRepository->buscarConFiltros($pagina, 5, $nombre, $descripcion, $estado);
+        } else {
+            $tareas = $tareaRepository->buscarTodas($pagina, 5);
+        }
+
         return $this->render(
             'index/index.html.twig',
             [
-                'tareas' => $tareaRepository->buscarTodas($pagina, self::ELEMENTS_PER_PAGE),
+                'tareas' => $tareas,
                 'pagina' => $pagina,
                 'filtro_form' => $filter_form->createView(),
             ]
