@@ -29,7 +29,7 @@ class Tarea
     #[ORM\JoinColumn(nullable: false)]
     private ?User $usuario = null;
 
-    #[ORM\ManyToOne(inversedBy: 'tareas')]
+    #[ORM\ManyToOne(targetEntity: EstadoTarea::class, inversedBy: 'tareas')]
     #[ORM\JoinColumn(nullable: false)]
     private ?EstadoTarea $estado = null;
 

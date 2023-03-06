@@ -115,4 +115,15 @@ class UserController extends AbstractController
 
         return $this->redirectToRoute('app_user_edit', ['id' => $user->getId()]);
     }
+
+    #[Route('/{id}/enable', name: 'app_user_enable', methods: ['GET'])]
+    public function enable(Request $request, User $user, UserRepository $userRepository)
+    {
+        $user->setActivo(true);
+        $userRepository->save($user, true);
+
+        $this->addFlash('success', 'La cuenta del usuario ha sido habilitada');
+
+        return $this->redirectToRoute('app_user_edit', ['id' => $user->getId()]);
+    }
 }

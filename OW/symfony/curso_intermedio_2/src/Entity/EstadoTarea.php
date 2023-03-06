@@ -10,6 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: EstadoTareaRepository::class)]
 class EstadoTarea
 {
+    public const UNDEFINED = 'Undefined';
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -21,7 +23,7 @@ class EstadoTarea
     #[ORM\Column(length: 255)]
     private ?string $descripcion = null;
 
-    #[ORM\OneToMany(mappedBy: 'estado', targetEntity: Tarea::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'estado', targetEntity: Tarea::class, cascade: ['persist'])]
     private Collection $tareas;
 
     public function __construct()
@@ -86,5 +88,17 @@ class EstadoTarea
         }
 
         return $this;
+    }
+
+    #[ORM\PreRemove]
+    public function actualizarTareas(): void
+    {
+        $undefinedEstado = $this->entityManager
+            ->getRepository(__CLASS__)
+            ->findOneBy(['nombre' => self::UNDEFINED]);
+
+        foreach ($this->tareas as $tarea) {
+            $tarea->setEstado($undefinedEstado); // O setearlo a un estado "undefined"
+        }
     }
 }

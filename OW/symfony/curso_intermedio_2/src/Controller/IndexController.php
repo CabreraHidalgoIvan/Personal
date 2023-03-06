@@ -33,9 +33,9 @@ class IndexController extends AbstractController
         $estado = $filter_form->get('estado')->getData();
 
         if ($nombre || $descripcion || $estado) {
-            $tareas = $tareaRepository->buscarConFiltros($pagina, 5, $nombre, $descripcion, $estado);
+            $tareas = $tareaRepository->buscarConFiltros($pagina, 10, $nombre, $descripcion, $estado);
         } else {
-            $tareas = $tareaRepository->buscarTodas($pagina, 5);
+            $tareas = $tareaRepository->buscarTodas($pagina, 10);
         }
 
         return $this->render(

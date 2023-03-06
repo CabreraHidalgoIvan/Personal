@@ -12,6 +12,8 @@ class EstadoFixtures extends Fixture
     public const ESTADO_EN_PROCESO_REFERENCIA = 'estado_en_proceso';
     public const ESTADO_FINALIZADA_REFERENCIA = 'estado_finalizada';
 
+    public const ESTADO_UNDEFINED_REFERENCIA = 'estado_undefined';
+
     public function load(ObjectManager $manager): void
     {
         $estado = new EstadoTarea();
@@ -34,6 +36,14 @@ class EstadoFixtures extends Fixture
         $manager->persist($estado);
         $manager->flush();
         $this->addReference(self::ESTADO_FINALIZADA_REFERENCIA, $estado);
+
+
+        $estado = new EstadoTarea();
+        $estado->setNombre('Undefined');
+        $estado->setDescripcion('Tareas sin Estado');
+        $manager->persist($estado);
+        $manager->flush();
+        $this->addReference(self::ESTADO_UNDEFINED_REFERENCIA, $estado);
 
     }
 }
